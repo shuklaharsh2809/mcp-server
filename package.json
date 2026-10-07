@@ -1,0 +1,49 @@
+{
+  "name": "taskpilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A beginner-friendly project for learning the Model Context Protocol",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/mcp/server.ts",
+    "dev:mcp": "tsx src/mcp/server.ts",
+    "dev:api": "tsx src/api/server.ts",
+    "dev:web": "vite",
+    "typecheck": "npm run typecheck:server && npm run typecheck:web",
+    "typecheck:server": "tsc --noEmit",
+    "typecheck:web": "tsc -p web/tsconfig.json",
+    "build": "npm run build:server && npm run build:web",
+    "build:server": "tsc",
+    "build:web": "vite build",
+    "test": "npm run build:server && node --test dist/tests/taskService.test.js",
+    "start": "node dist/api/server.js",
+    "start:mcp": "node dist/mcp/server.js",
+    "start:api": "node dist/api/server.js",
+    "agent": "tsx src/agent/cli.ts",
+    "inspect": "npx @modelcontextprotocol/inspector@0.15.0 npx tsx src/mcp/server.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "^2.3.1",
+    "@modelcontextprotocol/server": "^2.3.1",
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.2.1",
+    "openai": "^6.49.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.19.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.3"
+  }
+}
